@@ -47,7 +47,7 @@ namespace Repository
             foreach(var user in users)
             {
                 if(user.Login == id)
-                    users.Remove(user);
+                    return user;
             }
             return null;
         }

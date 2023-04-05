@@ -5,12 +5,15 @@ namespace Services
 {
     public class UserService
     {
-        private UserRepository userRepository = new();
-        private long idCounter = 0;
+        public UserService(IRepository<User,string> repository)
+        {
+            userRepository = repository;
+        }
+        private IRepository<User,string> userRepository;
 
         public void Register(string login, string password, string email)
         {
-            userRepository.Save(new User(login, password, email, idCounter++));
+            userRepository.Save(new User(login, password, email));
         }
         public User? Login(string login, string password)
         {
