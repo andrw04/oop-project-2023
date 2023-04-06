@@ -1,13 +1,29 @@
+using Domain;
+
 namespace Repository
 {
-    public interface IRepository<Type, KeyType>
+    public interface IRepository<Type>
     {
-        Type? FindById(KeyType id);
-        IEnumerable<Type> FindAll();
-        bool ExistsById(KeyType id);
+        Type? FindById(long id);
+        bool ExistsById(long id);
         long Count();
-        void DeleteById(KeyType id);
+        void DeleteById(long id);
         void DeleteAll(IEnumerable<Type> entities);
         void Save(Type entity);
+    }
+
+    public interface IUserRepository : IRepository<User>
+    {
+
+    }
+
+    public interface IModuleRepository : IRepository<Module>
+    {
+
+    }
+
+    public interface IFlashCardRepository : IRepository<IFlashCard>
+    {
+
     }
 }

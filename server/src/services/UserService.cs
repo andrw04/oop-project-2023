@@ -5,27 +5,24 @@ namespace Services
 {
     public class UserService
     {
-        public UserService(IRepository<User,string> repository)
+        public UserService(IUserRepository repository)
         {
             userRepository = repository;
         }
-        private IRepository<User,string> userRepository;
-
         public void Register(string login, string password, string email)
         {
             userRepository.Save(new User(login, password, email));
         }
         public User? Login(string login, string password)
         {
-            var user = userRepository.FindById(login);
+            var user = userRepository.FindByLogin(login);
             if(user != null && user.Password == password)
                 return user;
             return null;
         }
-
         public void EditProfile(string login, string? email=null,string? name=null, string? photo=null)
         {
-            var user = userRepository.FindById(login);
+            var user = userRepository.FindByLogin(login);
             if(user != null)
             {
                 user.Email = email ?? user.Email;
@@ -35,7 +32,10 @@ namespace Services
         }
         public void RemoveUser(string login)
         {
-            userRepository.DeleteById(login);
+            var user = userRepository.FindByLogin(login);
+            if(user != null)
+                userRepository.DeleteById(user.Id);
         }
+        private IUserRepository userRepository;
     }
 }

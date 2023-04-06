@@ -7,6 +7,7 @@ namespace Domain
             this.login = login;
             this.password = password;
             this.email = email;
+            this.id = userCount;
             this.userName = $"User#{userCount++}";
             this.photo = "None";
         }
@@ -15,11 +16,13 @@ namespace Domain
         public string Email{get => email; set => email = value;}
         public string Password{get => password;}
         public string Login{get => login;}
+        public long Id{get => id;}
         private string login;
         private string password;
         private string email;
         private string userName;
         private string photo;
-        static long userCount = 0;
+        private long id;
+        private static long userCount = 0;
     }
 }

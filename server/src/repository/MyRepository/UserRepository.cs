@@ -2,7 +2,7 @@ using Domain;
 
 namespace Repository
 {
-    public class UserRepository : IRepository<User, string>
+    public class UserRepository : IRepository<User>
     {
         private List<User> users = new();
 
@@ -15,38 +15,42 @@ namespace Repository
         {
             foreach(var entity in entities)
             {
-                if(ExistsById(entity.Login))
+                if(ExistsById(entity.Id))
                     users.Remove(entity);
             }
         }
 
-        public void DeleteById(string id)
+        public void DeleteById(long id)
         {
             var user = FindById(id);
             if(user != null)
                 users.Remove(user);
         }
 
-        public bool ExistsById(string id)
+        public bool ExistsById(long id)
+        {
+            var user = FindById(id);
+            if(user != null)
+                return true;
+            else
+                return false;
+        }
+
+        public User? FindById(long id)
         {
             foreach(var user in users)
             {
-                if(user.Login == id)
-                    return true;
+                if(user.Id == id)
+                    return user;
             }
-            return false;
+            return null;
         }
 
-        public IEnumerable<User> FindAll()
-        {
-            return users;
-        }
-
-        public User? FindById(string id)
+        public User? FindByLogin(string login)
         {
             foreach(var user in users)
             {
-                if(user.Login == id)
+                if(user.Login == login)
                     return user;
             }
             return null;
@@ -54,7 +58,7 @@ namespace Repository
 
         public void Save(User entity)
         {
-            if(FindById(entity.Login) == null)
+            if(FindById(entity.Id) == null)
                 users.Add(entity);
         }
     }
