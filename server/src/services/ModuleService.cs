@@ -5,7 +5,7 @@ namespace Services
 {
     public class ModuleService
     {
-        public ModuleService(IModuleRepository repository)
+        public ModuleService(ModuleRepository repository)
         {
             modules = repository;
         }
@@ -23,7 +23,7 @@ namespace Services
             modules.DeleteById(id);
         }
 
-        private IModuleRepository modules;
+        private ModuleRepository modules;
 
     }
 }
