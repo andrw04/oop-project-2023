@@ -12,31 +12,39 @@ namespace Services
         public void Register(string login, string password, string email)
         {
             userRepository.Save(new User(login, password, email));
-            Login(login,password);
         }
-        public void Login(string login, string password)
+        public User? Login(string login, string password)
         {
             var user = userRepository.FindByLogin(login);
             if(user != null && user.Password == password)
-                activeUser = user;
+                return user;
+            else
+                return null;
         }
-        public void EditProfile(string login, string? email=null,string? name=null, string? photo=null)
+        public bool EditProfile(User user)
         {
-            var user = userRepository.FindByLogin(login);
-            if(user != null)
+            var oldInfoUser = userRepository.FindById(user.Id);
+            if(oldInfoUser != null)
             {
-                user.Email = email ?? user.Email;
-                user.Name = name ?? user.Name;
-                user.Photo = photo ?? user.Email;
+                var usr = (User)oldInfoUser;
+                usr.Email = user.Email;
+                usr.Name = user.Name;
+                usr.Photo = user.Photo;
+                return true;
             }
+            return false;
         }
-        public void RemoveUser(string login)
+        public bool RemoveUser(User user)
         {
-            var user = userRepository.FindByLogin(login);
-            if(user != null)
-                userRepository.DeleteById(user.Id);
+            var userForDelete = userRepository.FindById(user.Id);
+            if(userForDelete != null)
+            {
+                var usr = (User)userForDelete;
+                userRepository.DeleteById(usr.Id);
+                return true;
+            }
+            return false;
         }
         private UserRepository userRepository;
-        private User? activeUser = null;
     }
 }
