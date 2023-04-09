@@ -46,6 +46,11 @@ namespace Repository
             if(!ExistsById(entity.Id))
                 storage.Add(entity);
         }
+
+        public IEnumerable<Entity> GetAll()
+        {
+            return storage;
+        }
         protected List<Entity> storage = new();
     }
 }

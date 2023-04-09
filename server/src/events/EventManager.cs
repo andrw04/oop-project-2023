@@ -1,23 +1,25 @@
-namespace src.events;
-
-public class EventManager
+namespace Events
 {
-    void Subscribe(IEventListener listener)
+    public class EventManager
     {
-        listeners.Add(listener);
-    }
-
-    void Unsubscribe(IEventListener listener)
-    {
-        listeners.Remove(listener);
-    }
-
-    void Notify(string data)
-    {
-        foreach (var listener in listeners)
+        public void Subscribe(IEventListener listener)
         {
-            listener.Update(data);
+            listeners.Add(listener);
         }
+
+        public void Unsubscribe(IEventListener listener)
+        {
+            listeners.Remove(listener);
+        }
+
+        public void Notify(string data)
+        {
+            foreach (var listener in listeners)
+            {
+                listener.Update(data);
+            }
+        }
+
+        private List<IEventListener> listeners = new();
     }
-    private List<IEventListener> listeners = new();
 }

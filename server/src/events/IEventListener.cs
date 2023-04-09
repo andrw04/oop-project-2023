@@ -1,6 +1,7 @@
-namespace src.events;
-
-public interface IEventListener
+namespace Events
 {
-    void Update(string data);
+    public interface IEventListener
+    {
+        public void Update(string data);
+    }
 }

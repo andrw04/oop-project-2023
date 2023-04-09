@@ -12,7 +12,5 @@ namespace Domain
             return page;
         }
         private Page page;
-        public long ModuleId{get => moduleId;}
-        private long moduleId;
     }
 }

@@ -1,25 +1,31 @@
 using Domain;
 using Repository;
+using Events;
 
 namespace Services
 {
     public class UserService
     {
-        public UserService(UserRepository repository)
+        public UserService(EventManager manager)
         {
-            userRepository = repository;
+            userRepository = new UserRepository();
+            this.eventManager = manager;
         }
-        public void Register(string login, string password, string email)
+        public void Register(User user)
         {
-            userRepository.Save(new User(login, password, email));
+            userRepository.Save(user);
+            eventManager.Notify($"{DateTime.Now} User id:{user.Id} has been registered.");
         }
         public User? Login(string login, string password)
         {
             var user = userRepository.FindByLogin(login);
-            if(user != null && user.Password == password)
+            if (user != null && user.Password == password)
+            {
+                eventManager.Notify($"{DateTime.Now} User id:{user.Id} has been logged.");
                 return user;
-            else
-                return null;
+            }
+
+            return null;
         }
         public bool EditProfile(User user)
         {
@@ -30,6 +36,7 @@ namespace Services
                 usr.Email = user.Email;
                 usr.Name = user.Name;
                 usr.Photo = user.Photo;
+                eventManager.Notify($"{DateTime.Now} User id:{usr.Id} has been edited.");
                 return true;
             }
             return false;
@@ -41,10 +48,12 @@ namespace Services
             {
                 var usr = (User)userForDelete;
                 userRepository.DeleteById(usr.Id);
+                eventManager.Notify($"{DateTime.Now} User id:{usr.Id} has been deleted.");
                 return true;
             }
             return false;
         }
         private UserRepository userRepository;
+        private EventManager eventManager;
     }
 }

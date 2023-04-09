@@ -1,11 +1,12 @@
-namespace src.events;
-
-public class ActivityListener : IEventListener
+namespace Events
 {
-    public void Update(string data)
+    public class ActivityListener : IEventListener
     {
-        logList.Add(data);
-    }
+        public void Update(string data)
+        {
+            logList.Add(data);
+        }
 
-    private List<string> logList = new();
+        private List<string> logList = new();
+    }
 }

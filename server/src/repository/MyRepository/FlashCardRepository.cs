@@ -4,6 +4,5 @@ namespace Repository
 {
     public class FlashCardRepository : Repository
     {
-
     }
 }

@@ -4,10 +4,11 @@ namespace Domain
     {
         public Entity()
         {
-            id = count++;
+            id = count;
+            count += 1;
         }
-        public long Id{get;}
-        private long id;
-        static long count = 0;
+        public long Id{get => id;}
+        protected long id;
+        protected static long count = 0;
     }
 }
