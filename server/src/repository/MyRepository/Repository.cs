@@ -2,7 +2,7 @@ using Domain;
 
 namespace Repository
 {
-    public class Repository
+    public class Repository : IRepository
     {
         public Entity? FindById(long id)
         {
