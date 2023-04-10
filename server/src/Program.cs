@@ -19,13 +19,28 @@ class Program
             user.Email = "user@mail.ru";
             var module = new Module("module", "description", "img", user.Name);
             ms.CreateModule(module);
-            var p1 = new Page("page1", "image1.jpg");
-            var p2 = new Page("page2", "image2.jpg");
+            var p1 = new Page("double page1", "image1.jpg");
+            var p2 = new Page("double page2", "image2.jpg");
+            var sp = new Page("single page", "singlepage.jpg");
             ms.AddFlashCard(new DoublePageFlashCard(p1,p2), module);
+            ms.AddFlashCard(new SinglePageFlashCard(sp),module);
             var fs = ms.GetAllFlashCards();
             foreach (var f in fs)
             {
-                Console.WriteLine(f.Show().Text);
+                if (f is DoublePageFlashCard)
+                {
+                    DoublePageFlashCard flashCard;
+                    flashCard = (DoublePageFlashCard)f;
+                    flashCard.Flip();
+                    Console.WriteLine(flashCard.Show().Text);
+                }
+
+                if (f is SinglePageFlashCard)
+                {
+                    SinglePageFlashCard flashCard;
+                    flashCard = (SinglePageFlashCard)f;
+                    Console.WriteLine(flashCard.Show().Text);
+                }
             }
             
         }

@@ -2,10 +2,9 @@ namespace Domain
 {
     public class SinglePageFlashCard : FlashCard
     {
-        public SinglePageFlashCard(Page p, long moduleId)
+        public SinglePageFlashCard(Page p)
         {
             page = p;
-            this.moduleId = moduleId;
         }
         public override Page Show()
         {
