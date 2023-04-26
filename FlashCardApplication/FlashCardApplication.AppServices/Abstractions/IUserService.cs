@@ -9,5 +9,6 @@ namespace FlashCardApplication.AppServices.Abstractions
 {
     public interface IUserService : IBaseService<User>
     {
+
     }
 }

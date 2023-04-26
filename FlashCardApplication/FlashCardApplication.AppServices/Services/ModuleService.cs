@@ -32,9 +32,21 @@ namespace FlashCardApplication.AppServices.Services
             return await _unitOfWork.ModuleRepository.ListAllAsync();
         }
 
+        public Task<IReadOnlyList<Module>> GetAllUsersModules(User user)
+        {
+            var modules = _unitOfWork.ModuleRepository.ListAsync((x) => x.UserId == user.Id);
+            return modules;
+        }
+
         public async Task<Module> GetByIdAsync(int id)
         {
             return await _unitOfWork.ModuleRepository.GetByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Module>> GetModulesByNameAsync(string name)
+        {
+            var modules = await _unitOfWork.ModuleRepository.ListAllAsync();
+            return modules.Where(x => x.Name == name);
         }
 
         public async Task UpdateAsync(Module item)
