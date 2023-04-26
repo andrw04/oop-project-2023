@@ -23,6 +23,6 @@ namespace FlashCardApplication.Domain.Abstractions
 
         Task DeleteAsync(T entity, CancellationToken cancellationToken = default);
 
-        Task<T> FirstOrDefaultAsync(CancellationToken cancellationToken = default);
+        Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, CancellationToken cancellationToken = default);
     }
 }

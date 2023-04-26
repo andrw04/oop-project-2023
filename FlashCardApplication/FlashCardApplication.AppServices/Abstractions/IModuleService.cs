@@ -9,6 +9,6 @@ namespace FlashCardApplication.AppServices.Abstractions
 {
     public interface IModuleService : IBaseService<Module>
     {
-
+        
     }
 }
