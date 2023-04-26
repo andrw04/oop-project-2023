@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FlashCardApplication.Domain.Entities
 {
-    internal class FlashCard
+    public class FlashCard : Entity
     {
+        // Foreighn key
+        public int ModuleId { get; set; }
+
+        // Navigation property
+        public Module Module { get; set; }
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlashCardApplication.Domain.Entities
+namespace FlashCardApplication.AppServices.Abstractions
 {
-    public class Entity
+    internal interface IFlashCardService
     {
-        public int Id { get; private set; }
     }
 }

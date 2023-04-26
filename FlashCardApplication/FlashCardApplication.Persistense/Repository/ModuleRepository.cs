@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlashCardApplication.Domain.Entities
+namespace FlashCardApplication.Persistense.Repository
 {
-    public class Entity
+    internal class ModuleRepository
     {
-        public int Id { get; private set; }
     }
 }

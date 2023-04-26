@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlashCardApplication.AppServices.Abstractions
 {
-    public interface IBaseService<T> where T: Entity
+    public interface IUserService : IBaseService<User>
     {
-        Task<IEnumerable<T>> GetAllAsync();
-        Task<T> GetByIdAsync(int id);
-        Task AddAsync(T item);
-        Task UpdateAsync(T item);
-        Task DeleteAsync(T item);
     }
 }

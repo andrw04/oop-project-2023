@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FlashCardApplication.Domain.Entities
 {
-    internal class DoublePageFlashCard
+    public class DoublePageFlashCard : FlashCard
     {
+        public Page Page1 { get; set; }
+        public Page Page2 { get; set; }
+        public bool Flipped { get; set; }
     }
 }

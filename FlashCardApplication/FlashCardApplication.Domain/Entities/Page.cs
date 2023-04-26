@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FlashCardApplication.Domain.Entities
 {
-    internal class Page
+    public class Page : Entity
     {
+        public int FlashCardId { get; set; }
+        public FlashCard FlashCard { get; set; }
     }
 }

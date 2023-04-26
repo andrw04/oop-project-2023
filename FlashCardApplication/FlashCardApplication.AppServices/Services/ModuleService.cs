@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlashCardApplication.Domain.Entities
+namespace FlashCardApplication.AppServices.Services
 {
-    public class Entity
+    public class ModuleService
     {
-        public int Id { get; private set; }
     }
 }
