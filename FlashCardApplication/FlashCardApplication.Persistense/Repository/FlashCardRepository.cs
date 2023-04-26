@@ -26,7 +26,7 @@ namespace FlashCardApplication.Persistense.Repository
             throw new NotImplementedException();
         }
 
-        public Task<FlashCard> GetByIdAsync(int id, CancellationToken cencellationToken = default, params Expression<Func<FlashCard, object>>[] includesProperties)
+        public Task<FlashCard> GetByIdAsync(int id, CancellationToken cencellationToken = default)
         {
             throw new NotImplementedException();
         }
@@ -36,7 +36,7 @@ namespace FlashCardApplication.Persistense.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IReadOnlyList<FlashCard>> ListAsync(Expression<Func<FlashCard, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<FlashCard, object>>[]? includesProperties)
+        public Task<IReadOnlyList<FlashCard>> ListAsync(Expression<Func<FlashCard, bool>> filter, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
