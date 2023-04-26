@@ -9,8 +9,8 @@ namespace FlashCardApplication.AppServices.Abstractions
 {
     public interface IModuleService : IBaseService<Module>
     {
-        Task<IReadOnlyList<Module>> GetModulesByNameAsync(string name);
+        Task<IEnumerable<Module>> GetModulesByNameAsync(string name);
 
-        Task<IReadOnlyList<Module>> GetAllByAuthorName(string authorName);
+        Task<IReadOnlyList<Module>> GetAllUsersModules(User user);
     }
 }
