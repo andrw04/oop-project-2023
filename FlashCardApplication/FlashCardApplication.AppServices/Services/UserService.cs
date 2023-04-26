@@ -21,9 +21,9 @@ namespace FlashCardApplication.AppServices.Services
             await _unitOfWork.UserRepository.AddAsync(item);
         }
 
-        public Task ChangeUser(User user)
+        public async Task ChangeUser(User user)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.UserRepository.UpdateAsync(user);
         }
 
         public async Task DeleteAsync(User item)
@@ -52,9 +52,13 @@ namespace FlashCardApplication.AppServices.Services
             return null;
         }
 
-        public Task Registrate(User user)
+        public async Task Registrate(User user)
         {
-            throw new NotImplementedException();
+            var users = await _unitOfWork.UserRepository.ListAsync((x) => x.Login == user.Login);
+            if (users == null || !users.Any())
+                return;
+            else
+                await _unitOfWork.UserRepository.AddAsync(user);
         }
 
         public async Task UpdateAsync(User item)
