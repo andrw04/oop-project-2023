@@ -10,11 +10,20 @@ namespace FlashCardApplication.Persistense.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IRepository<FlashCard> FlashCardRepository => throw new NotImplementedException();
+        private readonly Lazy<IRepository<User>> _userRepository;
+        private readonly Lazy<IRepository<Module>> _moduleRepository;
+        private readonly Lazy<IRepository<FlashCard>> _flashCardRepository;
+        public UnitOfWork()
+        {
+            _userRepository = new Lazy<IRepository<User>>(() => new UserRepository());
+            _moduleRepository = new Lazy<IRepository<Module>>(() => new ModuleRepository());
+            _flashCardRepository = new Lazy<IRepository<FlashCard>>(() => new FlashCardRepository());
+        }
+        public IRepository<FlashCard> FlashCardRepository => _flashCardRepository.Value;
 
-        public IRepository<Module> ModuleRepository => throw new NotImplementedException();
+        public IRepository<Module> ModuleRepository => _moduleRepository.Value;
 
-        public IRepository<User> UserRepository => throw new NotImplementedException();
+        public IRepository<User> UserRepository => _userRepository.Value;
 
         public Task CreateDatabaseAsync()
         {
