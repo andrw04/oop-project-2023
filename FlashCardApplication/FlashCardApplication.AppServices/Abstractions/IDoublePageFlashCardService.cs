@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace FlashCardApplication.AppServices.Abstractions
 {
-    public interface IModuleService : IBaseService<Module>
+    public interface IDoublePageFlashCardService : IBaseService<DoublePageFlashCard>
     {
-        Task<IEnumerable<Module>> GetModulesByNameAsync(string name);
-
-        Task<IEnumerable<Module>> GetAllUsersModules(User user);
+        void Flip(DoublePageFlashCard flashCard);
     }
 }

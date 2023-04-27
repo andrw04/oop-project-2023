@@ -14,17 +14,21 @@ namespace FlashCardApplication.Persistense.Repository
         private readonly AppDbContext _context;
         private readonly Lazy<IRepository<User>> _userRepository;
         private readonly Lazy<IRepository<Module>> _moduleRepository;
-        private readonly Lazy<IRepository<FlashCard>> _flashCardRepository;
+        private readonly Lazy<IRepository<DoublePageFlashCard>> _dpFlashCardRepository;
+        private readonly Lazy<IRepository<SinglePageFlashCard>> _spFlashCardRepository;
 
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
             _userRepository = new Lazy<IRepository<User>>(() => new Repository<User>(context));
             _moduleRepository = new Lazy<IRepository<Module>>(() => new Repository<Module>(context));
-            _flashCardRepository = new Lazy<IRepository<FlashCard>>(() => new Repository<FlashCard>(context));
+            _dpFlashCardRepository = new Lazy<IRepository<DoublePageFlashCard>>(() => new Repository<DoublePageFlashCard>(context));
+            _spFlashCardRepository = new Lazy<IRepository<SinglePageFlashCard>>(()=> new Repository<SinglePageFlashCard>(context));
         }
 
-        public IRepository<FlashCard> FlashCardRepository => _flashCardRepository.Value;
+        public IRepository<SinglePageFlashCard> SinglePageFlashCardRepository => _spFlashCardRepository.Value;
+
+        public IRepository<DoublePageFlashCard> DoublePageFlashCardRepository => _dpFlashCardRepository.Value;
 
         public IRepository<Module> ModuleRepository => _moduleRepository.Value;
 

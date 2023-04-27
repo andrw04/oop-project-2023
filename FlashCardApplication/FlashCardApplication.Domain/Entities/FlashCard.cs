@@ -13,5 +13,6 @@ namespace FlashCardApplication.Domain.Entities
 
         // Navigation property
         public Module Module { get; set; }
+
     }
 }

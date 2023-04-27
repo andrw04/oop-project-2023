@@ -12,7 +12,14 @@ namespace FlashCardApplication.Persistense.Data
     {
         public DbSet<User> Users => Set<User>();
         public DbSet<FlashCard> FlashCards => Set<FlashCard>();
+        public DbSet<SinglePageFlashCard> SinglePageFlashCards => Set<SinglePageFlashCard>();
+        public DbSet<DoublePageFlashCard> DoublePageFlashCards => Set<DoublePageFlashCard>();
         public DbSet<Module> Modules => Set<Module>();
         public AppDbContext(DbContextOptions<AppDbContext> opt) : base(opt) => Database.EnsureCreated();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FlashCard>().UseTphMappingStrategy();  // TPH
+        }
     }
 }

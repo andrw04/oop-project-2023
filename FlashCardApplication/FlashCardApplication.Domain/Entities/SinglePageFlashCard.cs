@@ -8,7 +8,7 @@ namespace FlashCardApplication.Domain.Entities
 {
     public class SinglePageFlashCard : FlashCard
     {
-        public int PageId { get; set; }
-        public Page Page { get; set; }
+        public int FrontPageId { get; set; }
+        public Page FrontPage { get; set; }
     }
 }

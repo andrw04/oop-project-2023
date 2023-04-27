@@ -45,13 +45,13 @@ namespace FlashCardApplication.Persistense.Repository
             return await query.FirstAsync((itm) => itm.Id == id);
         }
 
-        public async Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<T>> ListAllAsync(CancellationToken cancellationToken = default)
         {
             IQueryable<T>? query = _entities.AsQueryable();
             return await query.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<T>> ListAsync(Expression<Func<T, bool>> filter, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> filter, CancellationToken cancellationToken = default)
         {
             IQueryable<T>? query = _entities.AsQueryable();
             if (filter != null)

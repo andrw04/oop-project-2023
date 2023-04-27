@@ -8,8 +8,10 @@ namespace FlashCardApplication.Domain.Entities
 {
     public class DoublePageFlashCard : FlashCard
     {
-        public Page Page1 { get; set; }
-        public Page Page2 { get; set; }
+        public int FrontPageId { get; set; }
+        public int BackPageId { get; set; }
+        public Page FrontPage { get; set; }
+        public Page BackPage { get; set; }
         public bool Flipped { get; set; }
     }
 }

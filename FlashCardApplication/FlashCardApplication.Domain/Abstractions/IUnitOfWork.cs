@@ -9,7 +9,8 @@ namespace FlashCardApplication.Domain.Abstractions
 {
     public interface IUnitOfWork
     {
-        IRepository<FlashCard> FlashCardRepository { get; }
+        IRepository<SinglePageFlashCard> SinglePageFlashCardRepository { get; }
+        IRepository<DoublePageFlashCard> DoublePageFlashCardRepository { get; }
         IRepository<Module> ModuleRepository { get; }
         IRepository<User> UserRepository { get; }
         public Task RemoveDatabaseAsync();

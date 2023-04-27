@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlashCardApplication.AppServices.Abstractions
 {
-    public interface IFlashCardService : IBaseService<FlashCard>
+    public interface ISinglePageFlashCardService : IBaseService<SinglePageFlashCard>
     {
-
     }
 }

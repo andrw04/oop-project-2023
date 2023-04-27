@@ -12,9 +12,9 @@ namespace FlashCardApplication.Domain.Abstractions
     {
         Task<T> GetByIdAsync(int id, CancellationToken cencellationToken = default);
 
-        Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default);
+        Task<IEnumerable<T>> ListAllAsync(CancellationToken cancellationToken = default);
 
-        Task<IReadOnlyList<T>> ListAsync(Expression<Func<T, bool>> filter,
+        Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> filter,
             CancellationToken cancellationToken = default);
 
         Task AddAsync(T entity, CancellationToken cancellationToken = default);
