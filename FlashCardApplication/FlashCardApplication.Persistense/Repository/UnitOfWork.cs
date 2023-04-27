@@ -14,6 +14,7 @@ namespace FlashCardApplication.Persistense.Repository
         private readonly AppDbContext _context;
         private readonly Lazy<IRepository<User>> _userRepository;
         private readonly Lazy<IRepository<Module>> _moduleRepository;
+        private readonly Lazy<IRepository<Page>> _pageRepository;
         private readonly Lazy<IRepository<DoublePageFlashCard>> _dpFlashCardRepository;
         private readonly Lazy<IRepository<SinglePageFlashCard>> _spFlashCardRepository;
 
@@ -24,6 +25,7 @@ namespace FlashCardApplication.Persistense.Repository
             _moduleRepository = new Lazy<IRepository<Module>>(() => new Repository<Module>(context));
             _dpFlashCardRepository = new Lazy<IRepository<DoublePageFlashCard>>(() => new Repository<DoublePageFlashCard>(context));
             _spFlashCardRepository = new Lazy<IRepository<SinglePageFlashCard>>(()=> new Repository<SinglePageFlashCard>(context));
+            _pageRepository = new Lazy<IRepository<Page>>(() => new Repository<Page>(context));
         }
 
         public IRepository<SinglePageFlashCard> SinglePageFlashCardRepository => _spFlashCardRepository.Value;
@@ -33,6 +35,8 @@ namespace FlashCardApplication.Persistense.Repository
         public IRepository<Module> ModuleRepository => _moduleRepository.Value;
 
         public IRepository<User> UserRepository => _userRepository.Value;
+
+        public IRepository<Page> PagesRepository => _pageRepository.Value;
 
         public async Task CreateDatabaseAsync()
         {

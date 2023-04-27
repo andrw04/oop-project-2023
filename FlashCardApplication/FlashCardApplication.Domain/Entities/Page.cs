@@ -10,5 +10,8 @@ namespace FlashCardApplication.Domain.Entities
     {
         public int FlashCardId { get; set; }
         public FlashCard FlashCard { get; set; }
+
+        public string? Text { get; set; }
+        public string? Img { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace FlashCardApplication.Domain.Abstractions
 {
     public interface IUnitOfWork
     {
+        IRepository<Page> PagesRepository { get; }
         IRepository<SinglePageFlashCard> SinglePageFlashCardRepository { get; }
         IRepository<DoublePageFlashCard> DoublePageFlashCardRepository { get; }
         IRepository<Module> ModuleRepository { get; }
