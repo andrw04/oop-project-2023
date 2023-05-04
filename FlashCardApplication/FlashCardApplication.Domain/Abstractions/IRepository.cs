@@ -1,15 +1,20 @@
 ﻿using FlashCardApplication.Domain.Entities;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace FlashCardApplication.Domain.Abstractions
 {
     public interface IRepository<T> where T : Entity
     {
-        Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
-
-        Task<IReadOnlyCollection<T>> GetAllAsync(CancellationToken cancellationToken = default);
-
         Task AddAsync(T entity);
 
-        Task DeleteAsync(T entity, CancellationToken cancellationToken = default);
+        Task<T?> FindByIdAsync(Guid id);
+
+        Task<bool> ExistsById(Guid id);
+        Task<IEnumerable<T>> GetAllAsync();
+
+        Task UpdateAsync(T entity);
+
+        Task DeleteByIdAsync(Guid id);
     }
 }
