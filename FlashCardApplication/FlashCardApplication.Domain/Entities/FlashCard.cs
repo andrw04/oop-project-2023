@@ -8,6 +8,6 @@ namespace FlashCardApplication.Domain.Entities
 {
     public class FlashCard : Entity
     {
-        public int ModuleId { get; set; }
+        public Guid ModuleId { get; set; }
     }
 }
