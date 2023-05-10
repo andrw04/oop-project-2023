@@ -11,8 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\OOP_2023_Serializer\Serializer\Serializer.csproj" />
     <ProjectReference Include="..\FlashCardApplication.Domain\FlashCardApplication.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Serializer">
+      <HintPath>..\..\Serializer.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
