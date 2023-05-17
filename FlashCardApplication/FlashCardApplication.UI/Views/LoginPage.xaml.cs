@@ -1,4 +1,4 @@
-namespace FlashCardApplication.UI.Pages;
+namespace FlashCardApplication.UI.Views;
 
 public partial class LoginPage : ContentPage
 {

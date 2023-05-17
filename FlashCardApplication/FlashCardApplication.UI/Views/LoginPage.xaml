@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashCardApplication.UI.Views.LoginPage"
+             Title="LoginPage"
+             Shell.NavBarIsVisible="False">
+    <Grid BackgroundColor="#4D648D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackLayout>
+            <Frame BackgroundColor="#D0E1F9" HeightRequest="120" WidthRequest="120" CornerRadius="60" Padding="0" Margin="0,100,0,0" HorizontalOptions="Center">
+                <Image Source="https://img.icons8.com/?size=512&amp;id=ABBSjQJK83zf&amp;format=png" Aspect="AspectFill" Margin="0"/>
+            </Frame>
+        </StackLayout>
+        <Grid RowSpacing="5"
+              Grid.Row="1"
+              Margin="20,20,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Text="Welcome!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
+            <Label Grid.Row="2" Text="Sign in to continue" HorizontalOptions="Center" FontSize="Subtitle"/>
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="#D0E1F9" BorderColor="#D0E1F9" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="25" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="https://img.icons8.com/?size=512&amp;id=11730&amp;format=png" Aspect="AspectFill" Margin="10"/>
+                        <Entry Text="{Binding UserName}" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" PlaceholderColor="#283655"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#D0E1F9" BorderColor="#D0E1F9" Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="25" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="https://img.icons8.com/?size=512&amp;id=47810&amp;format=png" Aspect="AspectFill" Margin="10"/>
+                        <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" PlaceholderColor="#283655"/>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0">
+                    <CheckBox IsChecked="False" Color="#283655"/>
+                    <Label Text="Remember Me" TextColor="#D0E1F9" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="0,0,20,0"/>
+                    <Label Text="Forgot Password" TextColor="#283655" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Button Text="SIGN IN" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" WidthRequest="200" Margin="0,15,0,0" Command="{Binding LoginCommand}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0">
+                    <Label Text="New User?" TextColor="#D0E1F9" FontSize="Small" Margin="0,0,20,0"/>
+                    <Label Text="Sign Up" TextColor="#283655" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

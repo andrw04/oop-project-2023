@@ -1,8 +1,9 @@
-﻿using FlashCardApplication.UI.Pages;
+﻿using FlashCardApplication.UI.Views;
 using FlashCardApplication.MyApplication.Abstractions;
 using FlashCardApplication.MyApplication.Services;
 using Microsoft.Extensions.Logging;
 using FlashCardApplication.UI.ViewModels;
+using CommunityToolkit.Maui;
 
 namespace FlashCardApplication.UI
 {
@@ -13,6 +14,7 @@ namespace FlashCardApplication.UI
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -36,7 +38,7 @@ namespace FlashCardApplication.UI
 
             // Pages
             services.AddTransient<LoginPage>();
-            services.AddTransient<RegistrationPage>();
+            // services.AddTransient<RegistrationPage>();
 
             // ViewModels
             services.AddSingleton<LoginPageViewModel>();
