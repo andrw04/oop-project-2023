@@ -1,9 +1,9 @@
-﻿using FlashCardApplication.Application.Abstractions;
+﻿using FlashCardApplication.MyApplication.Abstractions;
 using FlashCardApplication.Domain.Abstractions;
 using FlashCardApplication.Domain.Entities;
 using FlashCardApplication.Persistense.Repository;
 
-namespace FlashCardApplication.Application.Services
+namespace FlashCardApplication.MyApplication.Services
 {
     public class UserService : IUserService
     {

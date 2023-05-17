@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FlashCardApplication.Domain\FlashCardApplication.Domain.csproj" />
+    <ProjectReference Include="..\FlashCardApplication.Persistense\FlashCardApplication.Persistense.csproj" />
   </ItemGroup>
 
 </Project>

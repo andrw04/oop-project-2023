@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.UI", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.Domain", "FlashCardApplication.Domain\FlashCardApplication.Domain.csproj", "{2D91351D-B3B6-43F4-BBB4-DFD87E2035AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.Application", "FlashCardApplication.Application\FlashCardApplication.Application.csproj", "{C5B08360-E4AA-4C35-9316-D18E0C9CF063}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.MyApplication", "FlashCardApplication.Application\FlashCardApplication.MyApplication.csproj", "{C5B08360-E4AA-4C35-9316-D18E0C9CF063}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.Persistense", "FlashCardApplication.Persistense\FlashCardApplication.Persistense.csproj", "{3F77B3EF-BA9A-4CD7-92F2-EC23D48D3FFD}"
 EndProject

@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FlashCardApplication.UI.Pages;
+using FlashCardApplication.MyApplication.Abstractions;
+using FlashCardApplication.MyApplication.Services;
+using Microsoft.Extensions.Logging;
+using FlashCardApplication.UI.ViewModels;
 
 namespace FlashCardApplication.UI
 {
@@ -19,7 +23,23 @@ namespace FlashCardApplication.UI
 		builder.Logging.AddDebug();
 #endif
 
+            SetupServices(builder.Services);
+
             return builder.Build();
+        }
+
+        private static void SetupServices(IServiceCollection services)
+        {
+            // Services
+            services.AddSingleton<IModuleService, ModuleService>();
+            services.AddSingleton<IUserService, UserService>();
+
+            // Pages
+            services.AddTransient<LoginPage>();
+            services.AddTransient<RegistrationPage>();
+
+            // ViewModels
+            services.AddSingleton<LoginPageViewModel>();
         }
     }
 }

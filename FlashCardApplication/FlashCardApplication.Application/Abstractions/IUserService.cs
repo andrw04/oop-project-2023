@@ -1,6 +1,6 @@
 ﻿using FlashCardApplication.Domain.Entities;
 
-namespace FlashCardApplication.Application.Abstractions
+namespace FlashCardApplication.MyApplication.Abstractions
 {
     public interface IUserService : IBaseService<User>
     {
