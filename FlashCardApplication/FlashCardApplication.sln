@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.Applic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCardApplication.Persistense", "FlashCardApplication.Persistense\FlashCardApplication.Persistense.csproj", "{3F77B3EF-BA9A-4CD7-92F2-EC23D48D3FFD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serializer", "..\..\OOP_2023_Serializer\Serializer\Serializer.csproj", "{FA61405A-A80F-41BB-84BE-9812ADCC5029}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{3F77B3EF-BA9A-4CD7-92F2-EC23D48D3FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F77B3EF-BA9A-4CD7-92F2-EC23D48D3FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F77B3EF-BA9A-4CD7-92F2-EC23D48D3FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA61405A-A80F-41BB-84BE-9812ADCC5029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA61405A-A80F-41BB-84BE-9812ADCC5029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA61405A-A80F-41BB-84BE-9812ADCC5029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA61405A-A80F-41BB-84BE-9812ADCC5029}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
