@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FlashCardApplication.UI.Views.LoginPage"
-             Title="LoginPage"
+             x:Class="FlashCardApplication.UI.Views.RegisterPage"
+             Title="RegisterPage"
              Shell.NavBarIsVisible="False">
     <Grid BackgroundColor="#4D648D">
         <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="1" Text="Welcome!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
-            <Label Grid.Row="2" Text="Sign in to continue" HorizontalOptions="Center" FontSize="Subtitle"/>
+            <Label Grid.Row="2" Text="Sign up to continue" HorizontalOptions="Center" FontSize="Subtitle"/>
             <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                 <Frame BackgroundColor="#D0E1F9" BorderColor="#D0E1F9" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="25" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" Spacing="10">
@@ -38,17 +38,22 @@
                 </Frame>
                 <Frame BackgroundColor="#D0E1F9" BorderColor="#D0E1F9" Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="25" HeightRequest="50">
                     <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="https://img.icons8.com/?size=512&amp;id=124218&amp;format=png" Aspect="AspectFill" Margin="10"/>
+                        <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" PlaceholderColor="#283655"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#D0E1F9" BorderColor="#D0E1F9" Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="25" HeightRequest="50">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
                         <Image Source="https://img.icons8.com/?size=512&amp;id=47810&amp;format=png" Aspect="AspectFill" Margin="10"/>
                         <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" PlaceholderColor="#283655"/>
                     </StackLayout>
                 </Frame>
-
-                <Button Text="SIGN IN" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" WidthRequest="200" Margin="0,45,0,0" Command="{Binding LoginCommand}"/>
+                <Button Text="SIGN UP" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" WidthRequest="200" Margin="0,45,0,0" Command="{Binding RegisterCommand}"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0">
-                    <Label Text="Dont have an account?" TextColor="#D0E1F9" FontSize="Small" Margin="0,0,20,0"/>
-                    <Label Text="Sign Up" TextColor="#283655" FontAttributes="Bold" FontSize="Small"/>
+                    <Label Text="Already have an account?" TextColor="#D0E1F9" FontSize="Small" Margin="0,0,20,0"/>
+                    <Label Text="Sign In" TextColor="#283655" FontAttributes="Bold" FontSize="Small"/>
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GotoRegisterPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding GotoLoginPageCommand}"/>
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
             </StackLayout>

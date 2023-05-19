@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:FlashCardApplication.UI.ViewModels"
+             xmlns:entity="clr-namespace:FlashCardApplication.Domain.Entities;assembly=FlashCardApplication.Domain"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="FlashCardApplication.UI.Views.HomePage"
+             x:DataType="models:HomePageViewModel"
+             Title="HomePage"
+             Shell.NavBarIsVisible="False">
+
+    <!--<ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Loaded"
+                                        Command="{Binding UpdateModuleListCommand}"/>
+    </ContentPage.Behaviors>-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+
+    <Grid Padding="0" BackgroundColor="#D0E1F9" ColumnSpacing="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0" StrokeThickness="0" BackgroundColor="#4D648D" Margin="5,5,5,5">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5"/>
+                </Border.StrokeShape>
+                <ScrollView>
+                    <VerticalStackLayout Margin="0,10,0,10" Spacing="10">
+                        <Label Text="User" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Frame BackgroundColor="#D0E1F9" Padding="0" Margin="5,5,5,5">
+                            <Image Source="https://img.icons8.com/?size=512&amp;id=ABBSjQJK83zf&amp;format=png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Label Text="{Binding CurrentUser.Name, StringFormat='Name: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
+                        <Label Text="{Binding CurrentUser.Login, StringFormat='Login: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
+                        <Label Text="{Binding CurrentUser.Email, StringFormat='Email: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="0" StrokeThickness="0" BackgroundColor="#4D648D" Margin="5,5,5,5">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Margin="0,10,0,10" Spacing="10">
+                    <Label Text="Actions" TextColor="White" FontAttributes="Bold" Margin="10,0,10,0" HorizontalOptions="Center"/>
+                    <Button Text="Change user info" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0"/>
+                    <Button Text="Add module" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0"/>
+                    <Button Text="Help" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0"/>
+                    <Button Text="SIGN OUT" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding SignOutCommand}"/>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+        <ScrollView Grid.Row="0" Grid.Column="1">
+            <Border StrokeThickness="0" BackgroundColor="#4D648D" Margin="5,5,5,5">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5"/>
+                </Border.StrokeShape>
+                <VerticalStackLayout Margin="0,10,0,10" Spacing="10">
+                    <Label Text="Modules" TextColor="White" FontSize="Subtitle" FontAttributes="Bold"  HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+        </ScrollView>
+    </Grid>
+</ContentPage>

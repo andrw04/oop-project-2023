@@ -38,10 +38,13 @@ namespace FlashCardApplication.UI
 
             // Pages
             services.AddTransient<LoginPage>();
-            // services.AddTransient<RegistrationPage>();
+            services.AddTransient<RegisterPage>();
+            services.AddTransient<HomePage>();
 
             // ViewModels
-            services.AddSingleton<LoginPageViewModel>();
+            services.AddTransient<LoginPageViewModel>();
+            services.AddTransient<RegisterPageViewModel>();
+            services.AddTransient<HomePageViewModel>();
         }
     }
 }

@@ -7,5 +7,7 @@ namespace FlashCardApplication.MyApplication.Abstractions
         Task<User?> GetUserAsync(string login, string password);
 
         Task EditProfileAsync(User user);
+
+        Task<bool> Exists(string login);
     }
 }

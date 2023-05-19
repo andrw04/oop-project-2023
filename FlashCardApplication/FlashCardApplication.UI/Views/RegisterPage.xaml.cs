@@ -2,10 +2,10 @@ using FlashCardApplication.UI.ViewModels;
 
 namespace FlashCardApplication.UI.Views;
 
-public partial class LoginPage : ContentPage
+public partial class RegisterPage : ContentPage
 {
-	LoginPageViewModel viewModel;
-	public LoginPage(LoginPageViewModel vm)
+	RegisterPageViewModel viewModel;
+	public RegisterPage(RegisterPageViewModel vm)
 	{
 		InitializeComponent();
 		viewModel = vm;

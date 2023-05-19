@@ -48,5 +48,19 @@ namespace FlashCardApplication.MyApplication.Services
         {
             await userRepository.UpdateAsync(entity);
         }
+
+        public async Task<bool> Exists(string login)
+        {
+            var users = await userRepository.GetAllAsync();
+
+            var result = users.FirstOrDefault(x => x.Login.Equals(login), null);
+
+            if (result == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
