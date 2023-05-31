@@ -2,10 +2,10 @@ using FlashCardApplication.UI.ViewModels;
 
 namespace FlashCardApplication.UI.Views;
 
-public partial class NewModulePage : ContentPage
+public partial class ModulePage : ContentPage
 {
-	NewModuleViewModel viewModel;
-	public NewModulePage(NewModuleViewModel vm)
+	ModuleViewModel viewModel;
+	public ModulePage(ModuleViewModel vm)
 	{
 		InitializeComponent();
 		viewModel = vm;

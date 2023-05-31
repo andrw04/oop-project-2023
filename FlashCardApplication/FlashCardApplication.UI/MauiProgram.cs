@@ -40,11 +40,24 @@ namespace FlashCardApplication.UI
             services.AddTransient<LoginPage>();
             services.AddTransient<RegisterPage>();
             services.AddTransient<HomePage>();
+            services.AddTransient<NewModulePage>();
+            services.AddTransient<ModulePage>();
+            services.AddTransient<EditUserPage>();
+            services.AddTransient<FlashCardPage>();
+            services.AddTransient<InfoPage>();
+            services.AddTransient<NewFlashCardPage>();
+            services.AddTransient<LearnPage>();
 
             // ViewModels
             services.AddTransient<LoginPageViewModel>();
             services.AddTransient<RegisterPageViewModel>();
             services.AddTransient<HomePageViewModel>();
+            services.AddTransient<NewModuleViewModel>();
+            services.AddTransient<ModuleViewModel>();
+            services.AddTransient<NewFlashCardViewModel>();
+            services.AddTransient<LearnViewModel>();
+            services.AddTransient<EditUserViewModel>();
+
         }
     }
 }

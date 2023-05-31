@@ -28,7 +28,7 @@ namespace FlashCardApplication.Persistense.Repository
             var filter = new BsonDocument { { "_id", id } };
             var cursor = await collection.FindAsync(filter);
 
-            return cursor.First();
+            return cursor.FirstOrDefault();
         }
 
         public async Task<bool> ExistsById(Guid id)

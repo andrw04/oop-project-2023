@@ -9,5 +9,7 @@ namespace FlashCardApplication.MyApplication.Abstractions
         Task DeleteFlashCardAsync(Guid FlashCardId);
 
         Task<IEnumerable<Module>> GetAllUserModules(Guid userId);
+
+        Task<IEnumerable<FlashCard>> GetAllModuleFlashCards(Guid moduleId);
     }
 }

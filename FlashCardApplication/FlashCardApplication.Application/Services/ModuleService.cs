@@ -95,5 +95,12 @@ namespace FlashCardApplication.MyApplication.Services
         {
             await moduleRepository.UpdateAsync(entity);
         }
+
+        public async Task<IEnumerable<FlashCard>> GetAllModuleFlashCards(Guid moduleId)
+        {
+            var flashcards = await flashCardRepository.GetAllAsync();
+
+            return flashcards.Where(x => x.ModuleId == moduleId);
+        }
     }
 }

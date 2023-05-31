@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FlashCardApplication.UI.Views.NewModulePage"
-             Title="NewModulePage"
+             x:Class="FlashCardApplication.UI.Views.NewFlashCardPage"
+             Title="NewFlashCardPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False">
-
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
     </Shell.BackButtonBehavior>
-    
+
     <ScrollView>
         <Grid BackgroundColor="#D0E1F9">
             <Grid.ColumnDefinitions>
@@ -30,7 +29,7 @@
                 </Border.StrokeShape>
 
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Create new module" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="Create new flashcard" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
                     <Frame BackgroundColor="#D0E1F9" HeightRequest="120" WidthRequest="120" CornerRadius="10" Padding="0" Margin="0,10,0,10" HorizontalOptions="Center">
                         <Image Source="https://img.icons8.com/?size=512&amp;id=49617&amp;format=png" Aspect="AspectFill" Margin="0"/>
                     </Frame>
@@ -38,21 +37,25 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Module Name" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center"/>
-                        <Label Text="Description" Grid.Row="1" Grid.Column="0" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center"/>
-                        <Entry Grid.Row="0" Grid.Column="1" BackgroundColor="White" WidthRequest="200" Text="{Binding ModuleName}"/>
-                        <Entry Grid.Row="1" Grid.Column="1" BackgroundColor="White" WidthRequest="200" Text="{Binding Description}"/>
+                        <Label Text="Word" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                        <Label Text="Meaning" Grid.Row="1" Grid.Column="0" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                        <Entry Text="{Binding Word}" Grid.Row="0" Grid.Column="1" BackgroundColor="White" WidthRequest="200"/>
+                        <Entry Text="{Binding Meaning}" Grid.Row="1" Grid.Column="1" BackgroundColor="White" WidthRequest="200"/>
                     </Grid>
-                    <Button Text="Add image" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655"/>
+                    <HorizontalStackLayout Spacing="20" Margin="5,0,5,0">
+                        <CheckBox IsChecked="{Binding DoublePage}" Color="#283655"/>
+                        <Label Text="Double page flashcard" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Button Text="Add image" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" Command="{Binding AddImageCommand}"/>
                     <Button Text="Create" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" Command="{Binding CreateCommand}"/>
                     <Button Text="Cancel" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" Command="{Binding CancelCommand}"/>
                 </VerticalStackLayout>
-
             </Border>
         </Grid>
     </ScrollView>

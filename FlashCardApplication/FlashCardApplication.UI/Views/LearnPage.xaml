@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashCardApplication.UI.Views.LearnPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="LearnPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Loaded"
+                                        Command="{Binding UpdateFlashCardListCommand}"/>
+    </ContentPage.Behaviors>
+
+    <ScrollView>
+        <Grid BackgroundColor="#D0E1F9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="1" Grid.Row="1"  BackgroundColor="#4D648D" Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+                    <!--<Label Text="Flash Card" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>-->
+
+                    <!--<Frame BackgroundColor="#D0E1F9" HeightRequest="240" WidthRequest="240" CornerRadius="10" Padding="0" Margin="0,10,0,10" HorizontalOptions="Center">
+                        <Image Source="https://img.icons8.com/?size=512&amp;id=49617&amp;format=png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>-->
+                    <Label/>
+                    <Label/>
+                    <Label Text="{Binding Word}" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label/>
+                    <Label Text="{Binding Meaning}" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label/>
+                        <Button Text="Flip" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" WidthRequest="150" Command="{Binding FlipCommand}"/>
+                    <HorizontalStackLayout Padding="10" Spacing="20">
+                        <Button Text="Prev" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" WidthRequest="150" Command="{Binding PrevCommand}"/>
+                        <Button Text="Next" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" WidthRequest="150" Command="{Binding NextCommand}"/>
+                    </HorizontalStackLayout>
+                    <Button Text="Cancel" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" CornerRadius="25" BackgroundColor="#283655" WidthRequest="320" Command="{Binding CancelCommand}"/>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>

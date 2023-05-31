@@ -6,7 +6,10 @@
     xmlns:local="clr-namespace:FlashCardApplication.UI"
     xmlns:views="clr-namespace:FlashCardApplication.UI.Views"
     Shell.TabBarIsVisible="False">
-    
+
+
+
+
     <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate views:LoginPage}"
@@ -25,4 +28,33 @@
         FlyoutItemIsVisible="False"
         Route="RegisterPage"/>
 
+    <ShellContent
+        Title="NewModulePaeg"
+        ContentTemplate="{DataTemplate views:NewModulePage}"
+        FlyoutItemIsVisible="False"
+        Route="NewModulePage"/>
+
+    <ShellContent 
+        Title="EditUserPage"
+        ContentTemplate="{DataTemplate views:EditUserPage}"
+        FlyoutItemIsVisible="False"
+        Route="EditUserPage"/>
+    
+    <ShellContent
+        Title="NewFlashCard"
+        ContentTemplate="{DataTemplate views:NewFlashCardPage}"
+        FlyoutItemIsVisible="False"
+        Route="NewFlashCardPage"/>
+    
+    <ShellContent
+        Title="Module"
+        ContentTemplate="{DataTemplate views:ModulePage}"
+        FlyoutItemIsVisible="False"
+        Route="ModulePage"/>
+
+    <ShellContent
+        Title="Help"
+        ContentTemplate="{DataTemplate views:InfoPage}"
+        FlyoutItemIsVisible="False"
+        Route="InfoPage"/>
 </Shell>

@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:FlashCardApplication.UI.ViewModels"
-             xmlns:entity="clr-namespace:FlashCardApplication.Domain.Entities;assembly=FlashCardApplication.Domain"
+             x:Class="FlashCardApplication.UI.Views.ModulePage"
+             Title="ModulePage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="FlashCardApplication.UI.Views.HomePage"
-             x:DataType="models:HomePageViewModel"
-             Title="HomePage"
-             Shell.NavBarIsVisible="False"
-             Shell.FlyoutBehavior="Disabled">
+             xmlns:entity="clr-namespace:FlashCardApplication.Domain.Entities;assembly=FlashCardApplication.Domain"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior EventName="Loaded"
-                                        Command="{Binding UpdateModuleListCommand}"/>
+                                        Command="{Binding UpdateFlashCardListCommand}"/>
     </ContentPage.Behaviors>
-    
-    <Shell.BackButtonBehavior>
-        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
-    </Shell.BackButtonBehavior>
+
 
     <Grid Padding="0" BackgroundColor="#D0E1F9" ColumnSpacing="5">
         <Grid.ColumnDefinitions>
@@ -38,13 +33,12 @@
                 </Border.StrokeShape>
                 <ScrollView>
                     <VerticalStackLayout Margin="0,10,0,10" Spacing="10">
-                        <Label Text="User" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="Module" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" HorizontalOptions="Center"/>
                         <Frame BackgroundColor="#D0E1F9" Padding="0" Margin="5,5,5,5">
-                            <Image Source="https://img.icons8.com/?size=512&amp;id=ABBSjQJK83zf&amp;format=png" Aspect="AspectFill" Margin="0"/>
+                            <Image Source="https://img.icons8.com/?size=512&amp;id=49617&amp;format=png" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Label Text="{Binding CurrentUser.Name, StringFormat='Name: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
-                        <Label Text="{Binding CurrentUser.Login, StringFormat='Login: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
-                        <Label Text="{Binding CurrentUser.Email, StringFormat='Email: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
+                        <Label Text="{Binding Module.Name, StringFormat='Module Name: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
+                        <Label Text="{Binding Module.Description, StringFormat='Description: {0}'}" FontSize="Subtitle" Margin="10,0,10,0" TextColor="White" FontAttributes="Bold"/>
                     </VerticalStackLayout>
                 </ScrollView>
             </Border>
@@ -54,10 +48,9 @@
                 </Border.StrokeShape>
                 <VerticalStackLayout Margin="0,10,0,10" Spacing="10">
                     <Label Text="Actions" TextColor="White" FontAttributes="Bold" Margin="10,0,10,0" HorizontalOptions="Center"/>
-                    <Button Text="Change user info" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding ChangeUserCommand}"/>
-                    <Button Text="Add module" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding AddModuleCommand}"/>
-                    <Button Text="Help" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding InfoCommand}"/>
-                    <Button Text="SIGN OUT" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding SignOutCommand}"/>
+                    <Button Text="Start Learn" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding LearnCommand}"/>
+                    <Button Text="Add FlashCard" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding AddFlashCardCommand}"/>
+                    <Button Text="Get back" BackgroundColor="#283655" TextColor="White" FontAttributes="Bold" CornerRadius="25" Margin="10,0,10,0" Command="{Binding GetBackCommand}"/>
                 </VerticalStackLayout>
             </Border>
         </Grid>
@@ -72,18 +65,51 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Frame Grid.Row="0" BackgroundColor="Transparent" CornerRadius="0">
-                        <Label Text="Modules" TextColor="White" FontSize="Subtitle" FontAttributes="Bold"  HorizontalOptions="Center"/>
+                        <Label Text="Flash Cards" TextColor="White" FontSize="Subtitle" FontAttributes="Bold"  HorizontalOptions="Center"/>
                     </Frame>
-                    <CollectionView Grid.Row="1" ItemsSource="{Binding Modules}" Margin="5,5,5,5">
+                    <CollectionView Grid.Row="1"  ItemsSource="{Binding FlashCards}" Margin="5,5,5,5">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="entity:FlashCard">
+                                <Border BackgroundColor="#283655" StrokeThickness="0" Margin="5,5,5,5" Padding="10">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10"/>
+                                    </Border.StrokeShape>
+                                    <Grid ColumnSpacing="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#D0E1F9" HeightRequest="100" WidthRequest="100" CornerRadius="10" Padding="0" HorizontalOptions="Center">
+                                            <Image  Aspect="AspectFill" Margin="0"/>
+                                        </Frame>
+                                        <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                                            <Label Text="{Binding FrontSide.Text1, StringFormat='Term: {0}'}" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                        </VerticalStackLayout>
+                                        
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
+                                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Source="empty.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center"/>
+                                    <Label Text="Empty module list" TextColor="White"  FontSize="Body" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                    <!--<CollectionView Grid.Row="1" ItemsSource="{Binding Modules}" Margin="5,5,5,5">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="entity:Module">
                                 <Border BackgroundColor="#283655" StrokeThickness="0" Margin="5,5,5,5" Padding="10">
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="10"/>
                                     </Border.StrokeShape>
-                                    <Border.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type models:HomePageViewModel}}, Path=ShowModuleCommand}" CommandParameter="{Binding}"/>
-                                    </Border.GestureRecognizers>
                                     <Grid ColumnSpacing="10">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -110,7 +136,7 @@
                                 </VerticalStackLayout>
                             </ContentView>
                         </CollectionView.EmptyView>
-                    </CollectionView>
+                    </CollectionView>-->
                 </Grid>
             </Border>
         </ScrollView>

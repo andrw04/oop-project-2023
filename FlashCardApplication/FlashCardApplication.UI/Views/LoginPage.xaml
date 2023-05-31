@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FlashCardApplication.UI.Views.LoginPage"
              Title="LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled">
     <Grid BackgroundColor="#4D648D">
         <Grid.RowDefinitions>
             <RowDefinition Height="220"/>
